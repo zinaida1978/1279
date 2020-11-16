@@ -29,16 +29,16 @@ let site = Object.keys(sites)[getRandom(0,Object.keys(sites).length)];
 let keywords = sites[site];
 let keyword = keywords[getRandom(0, keywords.length)];
 let yandexInput = document.getElementsByName("text")[0];
-let button = document.getElementsByClassName("mini-suggest__button")[0];
+let yandexFind = document.getElementsByClassName("mini-suggest__button")[0];
 let links = document.links;
-if (button != undefined){
+if (yandexFind != undefined){
     let i = 0;
     document.cookie = "site="+site;
     let timertId = setInterval(()=>{
         yandexInput.value += keyword[i++];
         if(i == keyword.length){
             clearInterval(timertId);
-            button.click();
+            yandexFind.click();
         }
     },500);
 }else if(location.hostname == "yandex.ru"){
